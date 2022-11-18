@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cp -R /ssh ~
+cp -R /ssh /root/.
 
 chown root:root ~/.gitconfig
 chown -R root:root ~/.ssh
