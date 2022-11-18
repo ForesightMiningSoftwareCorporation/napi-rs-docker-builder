@@ -1,6 +1,8 @@
 #!/bin/sh
 
-cp -R /ssh /root/.
+ls /ssh
+cp -R /ssh/.ssh /root/.ssh
+cp /ssh/.gitconfig /root/.gitconfig
 
 chown root:root ~/.gitconfig
 chown -R root:root ~/.ssh
