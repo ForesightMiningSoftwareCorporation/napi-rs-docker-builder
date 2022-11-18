@@ -8,7 +8,7 @@ chown -R root:root ~/.ssh
 
 sed 's|/home/runner|/root|g' -i.bak ~/.ssh/config
 
-RUN echo -e '\n[url "ssh://git@github.com/ForesightMiningSoftwareCorporation"]\n  insteadOf = https://github.com/ForesightMiningSoftwareCorporation' >> /root/.gitconfig
+RUN echo -e '\n[url "ssh://git@github.com"]\n  insteadOf = https://github.com' >> /root/.gitconfig
 
 mkdir -p -m 0600 ~/.ssh && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
