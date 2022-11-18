@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cp -R /ssh/gitconfig ~/.gitconfig
+cp -R /ssh/.gitconfig ~/.gitconfig
 cp -R /ssh/.ssh ~/.ssh
 
 chown root:root ~/.gitconfig
