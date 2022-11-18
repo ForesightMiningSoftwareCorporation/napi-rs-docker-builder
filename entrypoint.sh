@@ -2,8 +2,6 @@
 
 ls -alh /ssh
 cp -R /ssh/.ssh /root/.ssh
-cat /root/.gitconfig
-cat /ssh/.gitconfig
 mv /ssh/.gitconfig /root/.gitconfig
 
 chown root:root ~/.gitconfig
