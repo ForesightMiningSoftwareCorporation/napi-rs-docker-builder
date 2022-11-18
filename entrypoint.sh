@@ -1,6 +1,5 @@
 #!/bin/sh
 
-ls -alh /ssh
 cp -R /ssh/.ssh /root/.ssh
 mv /ssh/.gitconfig /root/.gitconfig
 
