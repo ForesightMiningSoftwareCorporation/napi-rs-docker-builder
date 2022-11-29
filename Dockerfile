@@ -6,7 +6,7 @@ ENV PATH="/aarch64-linux-musl-cross/bin:/usr/local/cargo/bin/rustup:/root/.cargo
   CXX="clang++" \
   GN_EXE=gn
 
-RUN apk add --update --no-cache nodejs yarn bash clang wget cmake openssh make perl pkgconfig openssl-dev curl gcc musl-dev linux-headers
+RUN apk add --update --no-cache nodejs yarn bash clang wget cmake git openssh make perl pkgconfig openssl-dev curl gcc musl-dev linux-headers
 
 
 WORKDIR /tmp
