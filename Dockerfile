@@ -1,9 +1,13 @@
-FROM ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-alpine
+FROM rust:alpine
 
-RUN apk add openssh make perl pkgconfig openssl-dev curl gcc musl-dev linux-headers
+ENV PATH="/aarch64-linux-musl-cross/bin:/usr/local/cargo/bin/rustup:/root/.cargo/bin:$PATH" \
+  RUSTFLAGS="-C target-feature=-crt-static" \
+  CC="clang" \
+  CXX="clang++" \
+  GN_EXE=gn
 
+RUN apk add --update --no-cache bash clang wget cmake openssh make perl pkgconfig openssl-dev curl gcc musl-dev linux-headers
 
-RUN mkdir -p /usr/local/musl/include
 
 WORKDIR /tmp
 
@@ -18,7 +22,8 @@ RUN make -j$(nproc) install_sw
 ENV OPENSSL_LIB_DIR=/usr/local/lib
 ENV OPENSSL_INCLUDE_DIR=/usr/include/openssl
 ENV OPENSSL_STATIC=yes
-ENV RUSTFLAGS="-C link-arg=-s -C link-self-contained=yes -C target-feature=-crt-static -C link-args=-static-libgcc"
+
+WORKDIR /build
 
 RUN mkdir /ssh
 
@@ -26,3 +31,5 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT /entrypoint.sh
+
+
