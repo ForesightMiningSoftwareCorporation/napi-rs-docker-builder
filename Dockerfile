@@ -6,7 +6,7 @@ ENV PATH="/aarch64-linux-musl-cross/bin:/usr/local/cargo/bin/rustup:/root/.cargo
   CXX="clang++" \
   GN_EXE=gn
 
-RUN apk add --update --no-cache nodejs yarn bash clang wget cmake git openssh make perl pkgconfig openssl-dev curl gcc musl-dev linux-headers
+RUN apk add --update --no-cache nodejs yarn bash clang wget cmake git openssh make perl pkgconfig openssl-dev curl gcc musl-dev linux-headers libatk-1.0 gtk+3.0-dev pkgconf glib-dev
 
 
 WORKDIR /tmp
@@ -31,5 +31,3 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT /entrypoint.sh
-
-
